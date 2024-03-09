@@ -1,0 +1,24 @@
+{
+  "name": "byte-size-creations",
+  "private": true,
+  "packageManager": "pnpm@8.9.0",
+  "scripts": {
+    "format": "prettier --write .",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "husky": "^9.0.11"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "lint-staged": "^15",
+    "prettier": "latest",
+    "prettier-plugin-imports": "npm:@trivago/prettier-plugin-sort-imports@latest",
+    "prettier-plugin-pkg": "latest",
+    "prettier-plugin-tailwindcss": "latest",
+    "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,md,json,css,scss}": "prettier --write"
+  }
+}

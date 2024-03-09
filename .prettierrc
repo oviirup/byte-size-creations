@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/prettierrc.json",
+  "arrowParens": "always",
+  "bracketSameLine": true,
+  "endOfLine": "lf",
+  "jsxSingleQuote": true,
+  "plugins": [
+    "prettier-plugin-pkg",
+    "prettier-plugin-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+  "printWidth": 80,
+  "quoteProps": "consistent",
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "tailwindFunctions": ["clsx", "cn"],
+  "trailingComma": "es5"
+}

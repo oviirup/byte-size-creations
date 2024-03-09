@@ -1,0 +1,28 @@
+# repository
+node_modules
+.vercel
+.turbo
+.DS_Store
+
+# build files
+build
+coverage
+dist
+out
+
+# local env files
+.env*
+!.env.example
+
+# package lock files
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+# miscellaneous
+.backup
+.idea
+*.bkp.*
+*.idea.*
+*.log*
+*.tsbuildinfo
