@@ -1,0 +1,209 @@
+@use 'sass:math';
+
+*,
+:before,
+:after {
+  box-sizing: border-box;
+  border-width: 0;
+  margin: 0;
+}
+
+html {
+  background: #f7f7f7;
+  color: black;
+  font-family: Raleway;
+  @media (prefers-color-scheme: dark) {
+    background: #111;
+    color: white;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+}
+
+.card {
+  z-index: 1;
+  position: relative;
+  color: white;
+  display: inline-flex;
+  font-family: Raleway;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    &:nth-of-type(2) {
+      display: none;
+    }
+  }
+  @media (max-width: 1120px) {
+    &:nth-of-type(3) {
+      display: none;
+    }
+  }
+
+  img {
+    z-index: 10;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    user-select: none;
+    border-radius: 0.75rem;
+    max-width: 19rem;
+  }
+
+  .animate {
+    translate: 0 1rem;
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+  }
+
+  figcaption {
+    position: absolute;
+    inset: 0;
+    top: unset;
+    z-index: 10;
+    padding: 8rem 1.5rem 1.5rem;
+
+    small {
+      margin-bottom: 0.5rem;
+      display: inline-flex;
+      border-radius: 0.25rem;
+      padding: 0.25rem 0.5rem;
+      font-weight: 600;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      text-transform: uppercase;
+      background-color: #15803d;
+      box-shadow: 0 25px 50px -12px #0004;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      line-height: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 25px 25px #0002);
+      transition-delay: 100ms;
+    }
+
+    p {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      opacity: 0.75;
+      filter: drop-shadow(0 4px 3px #0001) drop-shadow(0 2px 2px #0001);
+      transition-delay: 200ms;
+    }
+  }
+
+  &:hover {
+    figcaption small {
+      transition-delay: 200ms;
+    }
+    figcaption p {
+      transition-delay: 0ms;
+    }
+    figcaption .animate {
+      translate: 0;
+      opacity: 1;
+    }
+    .card_mask {
+      --mask-opacity: 1;
+    }
+  }
+}
+
+@property --mask-opacity {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+.card_mask {
+  z-index: -5;
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    opacity: var(--mask-opacity, 0);
+    transition: all 500ms ease-in-out;
+    border-radius: calc(0.75rem + 1px);
+    background-image: linear-gradient(#0000, rgb(var(--base-color) / 0.5));
+  }
+}
+
+@function pos($index) {
+  $pos: math.div(1, 8) * $index;
+  @if $pos > 1 {
+    @return 100%;
+  }
+  @return math.percentage($pos);
+}
+
+.card_mask > * {
+  position: absolute;
+  inset: 0px;
+  opacity: var(--mask-opacity, 0);
+  border-radius: calc(0.75rem + 1px);
+  transition: all 500ms ease-in-out;
+  @for $i from 0 through 7 {
+    $blur: math.pow(2, $i - 1);
+    // prettier-ignore
+    &:nth-child(#{$i + 1}) {
+      z-index: $i + 1;
+      backdrop-filter: blur(#{$blur}px);
+      mask-image: linear-gradient(to bottom, #0000 #{pos($i+0)}, #000 #{pos($i+1)}, #000 #{pos($i+2)}, #0000 #{pos($i+3)});
+    }
+  }
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+header {
+  font-size: 1.5rem;
+}
+
+footer {
+  color: #525252;
+  @media (prefers-color-scheme: dark) {
+    color: #a3a3a3;
+  }
+  a {
+    display: inline-flex;
+    align-items: center;
+    color: inherit;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-decoration: none;
+    text-underline-offset: 2px;
+    &:hover,
+    &:focus-visible {
+      text-decoration-line: underline;
+    }
+  }
+  svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: none;
+    stroke: currentColor;
+  }
+}

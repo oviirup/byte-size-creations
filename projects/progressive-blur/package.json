@@ -1,0 +1,15 @@
+{
+  "name": "progressive-blur",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc && vite build",
+    "dev": "vite",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "sass": "^1",
+    "vite": "^5"
+  }
+}
