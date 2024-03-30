@@ -1,8 +1,6 @@
 import DemoVideo from './demo.mp4';
 import React from 'react';
 
-const PROFILE_URL = 'https://twitter.com/brotzky_';
-
 export function App() {
   const favicon = React.useRef(null);
   const timer = React.useRef(null);
@@ -97,7 +95,7 @@ export function App() {
                 </svg>
               </a>
               <a
-                href={PROFILE_URL}
+                href='https://twitter.com/brotzky_'
                 className='text-sm text-neutral-600 dark:text-neutral-400'>
                 @brotzky_
               </a>
@@ -153,7 +151,7 @@ export function App() {
           data-href='https://twitter.com/oviirup/status/1766161749739507850'
           onClick={openTweet}>
           <div className='flex shrink-0 flex-col items-center gap-1'>
-            <a href={PROFILE_URL} target='_blank'>
+            <a href='https://twitter.com/oviirup' target='_blank'>
               <img
                 src='https://pbs.twimg.com/profile_images/1726685128775327744/9pBNrDLZ_normal.png'
                 className='size-10 rounded-full p-0.5'

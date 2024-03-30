@@ -1,8 +1,6 @@
-# Favicon Transition
+# Favicon Transition [![live demo](https://img.shields.io/badge/LIVE%20DEMO-000?logo=vercel&logoColor=white)](https://favicon-transition.vercel.app/)
 
 This is a simple recreation of the animated favicon from [feyapp.com](https://www.feyapp.com/). The favicon is updated whenever the tab is focused, and gets out of focus. [This](https://x.com/brotzky_/status/1766153313303818477?s=20) post from [Brotzky](https://twitter.com/brotzky_) inspired my curiosity.
-
-[![live demo](https://img.shields.io/badge/live%20demo-000000?logo=vercel&logoColor=white)](https://favicon-transition.vercel.app/)
 
 1. Firstly, we have to check if the current window is in focus. We make use of document visibilityState ([docs 📑](https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilityState)) to check if the current tab is in focus or not.
 
