@@ -127,7 +127,7 @@ export const App = () => {
                       Get started
                     </a>
                     <a
-                      href='https://github.com/oviirup/byte-size-creations/tree/main/projects/favicon-transition'
+                      href='https://github.com/oviirup/byte-size-creations/tree/main/projects/fluent-dropdown'
                       target='_blank'
                       className='text-sm font-semibold leading-6 text-gray-900'>
                       GitHub Repo <span aria-hidden='true'>{'->'}</span>

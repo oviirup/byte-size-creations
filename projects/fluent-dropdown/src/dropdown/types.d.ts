@@ -1,9 +1,7 @@
-/// <reference types="vite/client" />
 import React from 'react';
 
 export type DropdownProps = React.HTMLAttributes<HTMLDialogElement> & {
   /** set the id of the primary menu */
-  initial: string;
   isOpen: boolean;
   onOpenChange: React.Dispatch<React.SetStateAction<boolean>>;
   initial?: string;

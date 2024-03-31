@@ -1,7 +1,17 @@
-import { cn } from './utils';
+import clsx from 'clsx';
 import { ArrowLeft, ChevronRight } from 'lucide-react';
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { twMerge } from 'tailwind-merge';
+
+/**
+ * Creates a formatted className from given arguments
+ * @param {...any} args - string, array, or object
+ * @returns {string} sanitized class-names
+ */
+export function cn(...args) {
+  return twMerge(clsx(args));
+}
 
 const TIMEOUT = 250;
 
@@ -24,10 +34,13 @@ const DropdownRoot = ({
   ...props
 }) => {
   const [activeMenu, setActiveMenu] = React.useState(initial);
+  /** @type {React.MutableRefObject<HTMLDialogElement|null>} */
   const dialogRef = React.useRef(null);
+  /** @type {React.MutableRefObject<HTMLDivElement|null>} */
   const wrapperRef = React.useRef(null);
 
   const closeMenu = () => onOpenChange(false);
+  /** @type {React.MouseEventHandler<HTMLDivElement> } */
   const closeModal = (event) => {
     if (event.target === event.currentTarget) closeMenu();
   };
@@ -42,7 +55,7 @@ const DropdownRoot = ({
   React.useEffect(() => {
     if (isOpen) {
       setActiveMenu(initial);
-      getHeight(wrapperRef.current);
+      wrapperRef.current && getHeight(wrapperRef.current);
     }
   }, [isOpen]);
 
@@ -102,7 +115,6 @@ const DropdownItem = ({ icon, inset, targetMenu, ...props }) => {
     <li
       className={cn(
         'flex h-10 cursor-pointer select-none items-center gap-2 px-3 text-sm text-gray-800 transition-colors hover:bg-gray-500/10',
-
         !icon && inset && 'pl-9'
       )}
       {...props}
