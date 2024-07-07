@@ -2,19 +2,21 @@
   "$schema": "https://json.schemastore.org/prettierrc.json",
   "arrowParens": "always",
   "bracketSameLine": true,
-  "endOfLine": "lf",
-  "jsxSingleQuote": true,
+  "importOrderParsers": ["typescript", "jsx", "decorators-legacy"],
+  "importOrderTSVersion": "5.4.5",
+  "printWidth": 80,
+  "overrides": [
+    { "files": ["*.css", "*.scss"], "options": { "printWidth": 240 } },
+    { "files": ["*.json", ".*rc"], "options": { "trailingComma": "none" } }
+  ],
   "plugins": [
     "prettier-plugin-pkg",
     "prettier-plugin-imports",
+    "prettier-plugin-jsdoc",
     "prettier-plugin-tailwindcss"
   ],
-  "printWidth": 80,
   "quoteProps": "consistent",
   "semi": true,
-  "singleQuote": true,
-  "tabWidth": 2,
-  "tailwindAttributes":["classNames"],
-  "tailwindFunctions": ["clsx", "cn"],
-  "trailingComma": "es5"
+  "tailwindFunctions": ["clsx", "cn", "cva"],
+  "trailingComma": "all"
 }

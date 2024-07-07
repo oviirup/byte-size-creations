@@ -1,0 +1,11 @@
+{
+  "editor.formatOnSave": true,
+  "css.validate": false,
+  "scss.validate": false,
+  // tailwind support for cva and classNames
+  "tailwindCSS.classAttributes": ["class", "classNames?", "[\\w]+ClassNames?"],
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ]
+}
