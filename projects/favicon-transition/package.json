@@ -9,17 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.2",
-    "react-dom": "^18.2"
+    "react": "^18",
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "4.0.0-alpha.11",
-    "@types/react": "^18.2",
-    "@types/react-dom": "^18.2",
+    "@tailwindcss/vite": "4.0.0-alpha.17",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
     "@vitejs/plugin-react": "^4",
-    "autoprefixer": "^10",
-    "postcss": "^8",
-    "tailwindcss": "4.0.0-alpha.11",
+    "tailwindcss": "4.0.0-alpha.17",
     "vite": "^5"
   }
 }
