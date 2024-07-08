@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 
 html {
-  @apply bg-neutral-100 dark:bg-neutral-950;
-  @apply text-black dark:text-white;
+  @apply bg-zinc-100 text-black dark:bg-zinc-950 dark:text-white;
 }

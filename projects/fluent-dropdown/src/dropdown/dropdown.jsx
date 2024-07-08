@@ -6,8 +6,9 @@ import { twMerge } from 'tailwind-merge';
 
 /**
  * Creates a formatted className from given arguments
- * @param {...any} args - string, array, or object
- * @returns {string} sanitized class-names
+ *
+ * @param {...any} args - String, array, or object
+ * @returns {string} Sanitized class-names
  */
 export function cn(...args) {
   return twMerge(clsx(args));
@@ -15,7 +16,7 @@ export function cn(...args) {
 
 const TIMEOUT = 250;
 
-/** @type {React.Context< import('./types').DropdownContextProps>} */
+/** @type {React.Context<import('./types').DropdownContextProps>} */
 const DropdownContext = React.createContext({
   initial: 'primary',
   menu: 'primary',
@@ -25,7 +26,7 @@ const DropdownContext = React.createContext({
 });
 const useDropdown = () => React.useContext(DropdownContext);
 
-/** @type {React.FC< import('./types').DropdownProps>} */
+/** @type {React.FC<import('./types').DropdownProps>} */
 const DropdownRoot = ({
   isOpen,
   onOpenChange,
@@ -34,18 +35,18 @@ const DropdownRoot = ({
   ...props
 }) => {
   const [activeMenu, setActiveMenu] = React.useState(initial);
-  /** @type {React.MutableRefObject<HTMLDialogElement|null>} */
+  /** @type {React.MutableRefObject<HTMLDialogElement | null>} */
   const dialogRef = React.useRef(null);
-  /** @type {React.MutableRefObject<HTMLDivElement|null>} */
+  /** @type {React.MutableRefObject<HTMLDivElement | null>} */
   const wrapperRef = React.useRef(null);
 
   const closeMenu = () => onOpenChange(false);
-  /** @type {React.MouseEventHandler<HTMLDivElement> } */
+  /** @type {React.MouseEventHandler<HTMLDivElement>} */
   const closeModal = (event) => {
     if (event.target === event.currentTarget) closeMenu();
   };
 
-  const getHeight = (/**  @type {HTMLElement} */ el) => {
+  const getHeight = (/** @type {HTMLElement} */ el) => {
     if (!wrapperRef.current || !el) return;
     const targetHeight = el.offsetHeight;
     wrapperRef.current.style.setProperty('height', `${targetHeight}px`);
@@ -64,10 +65,10 @@ const DropdownRoot = ({
       ref={dialogRef}
       {...props}
       className={cn(
-        'group absolute -right-2 left-auto top-full z-50 mt-2 bg-transparent  *:transition-all *:duration-[--transition-duration]',
-        className
+        'group absolute top-full -right-2 left-auto z-50 mt-2 bg-transparent *:transition-all *:duration-[--transition-duration]',
+        className,
       )}
-      data-position='top right'
+      data-position="top right"
       style={{ '--transition-duration': `${TIMEOUT}ms` }}>
       <CSSTransition
         nodeRef={wrapperRef}
@@ -80,7 +81,7 @@ const DropdownRoot = ({
         onEnter={() => dialogRef.current?.show()}
         onExited={() => dialogRef.current?.close()}>
         <div
-          className='relative inset-0 z-10 w-52 origin-top-right overflow-hidden rounded-lg border border-gray-300 bg-white shadow-xl [&_ul]:py-2'
+          className="relative inset-0 z-10 w-52 origin-top-right overflow-hidden rounded-lg border border-zinc-300 bg-white shadow-xl [&_ul]:py-2"
           ref={wrapperRef}>
           <DropdownContext.Provider
             value={{
@@ -95,7 +96,7 @@ const DropdownRoot = ({
         </div>
       </CSSTransition>
       <div
-        className='fixed inset-0 -z-10 bg-black/10 backdrop-saturate-50'
+        className="fixed inset-0 -z-10 bg-black/10 backdrop-saturate-50"
         onClick={closeModal}
       />
     </dialog>
@@ -114,17 +115,17 @@ const DropdownItem = ({ icon, inset, targetMenu, ...props }) => {
   return (
     <li
       className={cn(
-        'flex h-10 cursor-pointer select-none items-center gap-2 px-3 text-sm text-gray-800 transition-colors hover:bg-gray-500/10',
-        !icon && inset && 'pl-9'
+        'flex h-10 cursor-pointer items-center gap-2 px-3 text-sm text-zinc-800 transition-colors select-none hover:bg-zinc-500/10',
+        !icon && inset && 'pl-9',
       )}
       {...props}
       onClick={handleClick}>
-      <span className='[&>.lucide]:mr-1 [&>.lucide]:size-4 [&>.lucide]:text-current'>
+      <span className="[&>.lucide]:mr-1 [&>.lucide]:size-4 [&>.lucide]:text-current">
         {icon}
       </span>
       {props.children}
       {targetMenu && (
-        <ChevronRight size={12} className='ml-auto stroke-gray-400' />
+        <ChevronRight size={12} className="ml-auto stroke-zinc-400" />
       )}
     </li>
   );
@@ -133,7 +134,7 @@ const DropdownItem = ({ icon, inset, targetMenu, ...props }) => {
 /** @type {React.FC<import('./types').DropdownSubProps>} */
 const DropdownMenu = ({ title, menuId, ...props }) => {
   const { menu, initial: primary, toggleMenu, getHeight } = useDropdown();
-  /** @type {React.MutableRefObject<HTMLUListElement|null>} */
+  /** @type {React.MutableRefObject<HTMLUListElement | null>} */
   const menuRef = React.useRef(null);
   const isPrimary = menuId === primary;
 
@@ -154,16 +155,16 @@ const DropdownMenu = ({ title, menuId, ...props }) => {
         {...props}
         data-menu={menuId}
         data-primary={isPrimary ? '' : undefined}
-        className='inset-x-0 top-0'
+        className="inset-x-0 top-0"
         ref={menuRef}>
         {!isPrimary && (
           <li
-            className='group/li mb-1 flex h-10 cursor-pointer select-none items-center gap-2 border-b border-gray-100 px-2 pb-1'
+            className="group/li mb-1 flex h-10 cursor-pointer items-center gap-2 border-b border-zinc-100 px-2 pb-1 select-none"
             onClick={() => toggleMenu(primary)}>
-            <button className='rounded p-1 group-hover/li:bg-gray-500/10'>
-              <ArrowLeft size={16} className='stroke-gray-500' />
+            <button className="rounded p-1 group-hover/li:bg-zinc-500/10">
+              <ArrowLeft size={16} className="stroke-zinc-500" />
             </button>
-            <span className='text-sm text-gray-500'>{title}</span>
+            <span className="text-sm text-zinc-500">{title}</span>
           </li>
         )}
         {props.children}
