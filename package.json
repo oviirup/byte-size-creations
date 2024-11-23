@@ -3,23 +3,20 @@
   "private": true,
   "packageManager": "pnpm@9.4.0",
   "scripts": {
-    "build": "turbo build",
+    "build": "turbo run build",
+    "clean": "turbo run clean",
     "format": "prettier . -w -u --cache",
-    "prepare": "husky"
+    "lint:repo": "sherif"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "husky": "^9",
-    "lint-staged": "^15",
-    "prettier": "^3",
-    "prettier-plugin-imports": "^4.2",
-    "prettier-plugin-jsdoc": "^1.3",
-    "prettier-plugin-pkg": "^0.18",
-    "prettier-plugin-tailwindcss": "^0.6",
-    "turbo": "^2",
-    "typescript": "^5"
-  },
-  "lint-staged": {
-    "*": "prettier -w -u"
+    "@types/node": "~20.17.6",
+    "lint-staged": "~15.2.10",
+    "prettier": "~3.3.3",
+    "prettier-plugin-jsdoc": "~1.3.0",
+    "prettier-plugin-pkg": "~0.18.1",
+    "prettier-plugin-tailwindcss": "~0.6.9",
+    "sherif": "~1.0.2",
+    "turbo": "~2.3.1",
+    "typescript": "~5.7.2"
   }
 }

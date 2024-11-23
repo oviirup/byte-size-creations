@@ -1,0 +1,22 @@
+# lock files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lockb
+
+# test files
+*.test.ts
+*.test.js
+
+# static files
+*.min.js
+.gitignore
+.npmignore
+.prettierignore
+.eslintignore
+
+# miscellaneous
+*.log
+.*rc
+.DS_Store
+.pnp.*

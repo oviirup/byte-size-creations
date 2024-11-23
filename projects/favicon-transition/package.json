@@ -5,19 +5,20 @@
   "private": true,
   "scripts": {
     "build": "vite build",
+    "clean": "git clean -xdf dist node_modules .turbo",
     "dev": "vite",
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18"
+    "react": "~18.3.1",
+    "react-dom": "~18.3.1"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "4.0.0-alpha.17",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@vitejs/plugin-react": "^4",
-    "tailwindcss": "4.0.0-alpha.17",
-    "vite": "^5"
+    "@tailwindcss/vite": "4.0.0-beta.2",
+    "@types/react": "~18.3.12",
+    "@types/react-dom": "~18.3.1",
+    "@vitejs/plugin-react": "~4.3.3",
+    "tailwindcss": "4.0.0-beta.2",
+    "vite": "~5.4.11"
   }
 }

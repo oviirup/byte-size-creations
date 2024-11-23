@@ -1,9 +1,24 @@
 {
   "editor.formatOnSave": true,
+  "explorer.sortOrder": "type",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.removeUnused.ts": "explicit"
+  },
+  // allow tailwind directives in css & scss
   "css.validate": false,
   "scss.validate": false,
+  // file nesting
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "package.json": ".nvmrc, .npm*, pnpm-*",
+    "*.js": "$(capture).cjs, $(capture).*.js, $(capture).d.ts",
+    "*.ts": "$(capture).js, $(capture).*.ts, $(capture).*.js,"
+  },
   // tailwind support for cva and classNames
-  "tailwindCSS.classAttributes": ["class", "classNames?", "[\\w]+ClassNames?"],
+  "tailwindCSS.classAttributes": ["class", "classNames?", "\\w+ClassName"],
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
     ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
