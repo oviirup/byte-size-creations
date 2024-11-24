@@ -1,5 +1,37 @@
 @import 'tailwindcss';
 
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-fg: hsl(var(--card-fg));
+  --color-muted: hsl(var(--muted));
+  --color-muted-fg: hsl(var(--muted-fg));
+  --color-border: hsl(var(--border));
+}
+
+@variant hocus (&:hover, &:focus-visible);
+
+/* theme colors */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 240 5% 94.6%;
+  --card-fg: 240 10% 3.9%;
+  --muted: 240 4.8% 95.9%;
+  --muted-fg: 240 3.8% 46.1%;
+  --border: 240 5.9% 90%;
+  @media (prefers-color-scheme: dark) {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 6% 6.5%;
+    --card-fg: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-fg: 240 5% 64.9%;
+    --border: 240 3.7% 15.9%;
+  }
+}
+
 html {
-  @apply bg-zinc-100 text-black dark:bg-zinc-950 dark:text-white;
+  @apply bg-background text-foreground;
 }
