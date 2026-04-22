@@ -1,5 +1,6 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "root": true,
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -8,33 +9,44 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**/*.{js,jsx,ts,tsx,json,jsonc,css}", "!*.min.*"]
+    "includes": ["**/*", "!*.min.*"]
   },
   "formatter": {
     "enabled": true,
-    "useEditorconfig": true
+    "lineWidth": 120,
+    "useEditorconfig": true,
+    "bracketSameLine": true
   },
   "linter": {
     "enabled": true,
-    "includes": ["src", "!tests"],
     "rules": {
       "recommended": true,
+      "a11y": {
+        "recommended": false
+      },
       "style": {
         "noNonNullAssertion": "off",
         "useImportType": "off"
       },
       "suspicious": {
-        "noConsole": {
-          "fix": "safe",
-          "level": "warn",
-          "options": { "allow": ["info", "warn", "error"] }
-        },
         "noExplicitAny": "off",
+        "noUnknownAtRules": "off",
         "noArrayIndexKey": "off"
       }
     }
   },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true,
+      "cssModules": true
+    }
+  },
   "assist": {
-    "actions": { "source": { "organizeImports": "on" } }
+    "actions": {
+      "source": {
+        "organizeImports": "on",
+        "noDuplicateClasses": "on"
+      }
+    }
   }
 }

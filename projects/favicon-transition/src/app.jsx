@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './style.css';
-import { Tweet } from './tweet';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Tweet } from "./tweet";
+import "./style.css";
 
 function App() {
   const favicon = React.useRef();
@@ -15,7 +15,7 @@ function App() {
     }
 
     // update the favicon with respective frame
-    const updateFavicon = (frame) => favicon.current?.setAttribute('href', `/vite-frame-${frame}.svg`);
+    const updateFavicon = (frame) => favicon.current?.setAttribute("href", `/vite-frame-${frame}.svg`);
 
     // update the favicon based on the document visibility
     const handleVisibilityChange = () => {
@@ -41,9 +41,9 @@ function App() {
         }, DELAY);
       }
     };
-    document.addEventListener('visibilitychange', handleVisibilityChange);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
     return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);
 
@@ -54,7 +54,7 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,

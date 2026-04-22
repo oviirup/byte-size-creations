@@ -1,6 +1,9 @@
 {
   "name": "byte-size-creations",
   "private": true,
+  "workspaces": [
+    "projects/*"
+  ],
   "scripts": {
     "clean": "bun run --parallel --filter '*' 'clean'",
     "format": "biome format --write",

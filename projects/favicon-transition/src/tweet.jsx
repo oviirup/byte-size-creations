@@ -1,33 +1,25 @@
-import React from 'react';
-
 export function Tweet() {
   return (
-    <blockquote className="border-border w-full overflow-hidden rounded-2xl border">
+    <blockquote className="border-border w-full overflow-hidden rounded-3xl border">
       <article className="hover:bg-card group relative flex cursor-pointer gap-2 px-4 pt-3">
         <div className="flex shrink-0 flex-col items-center gap-1">
-          <a href="https://twitter.com/brotzky_" target="_blank">
+          <a href="https://twitter.com/brotzky_">
             <img
               src="https://pbs.twimg.com/profile_images/1352704374217183233/84TK-amU_normal.jpg"
               className="border-border size-10 rounded-full border"
             />
           </a>
-          <span className="flex h-16 w-px flex-1 flex-grow border-r border-neutral-500/50" />
+          <span className="flex h-16 w-px grow border-r border-neutral-500/50" />
         </div>
         <div className="w-full">
           <header className="inline-flex items-center gap-1">
             <a
               href="https://twitter.com/brotzky_"
-              className="inline-flex items-center gap-1 text-[15px] font-bold leading-5 decoration-neutral-500 underline-offset-2 hover:underline focus-visible:underline"
-              target="_blank"
-            >
+              className="inline-flex items-center gap-1 text-[15px] font-bold leading-5 decoration-neutral-500 underline-offset-2 hover:underline focus-visible:underline">
               Brotzky
               <Icon name="verified" fill="#1d9bf0" size="1.25em" />
             </a>
-            <a
-              href="https://twitter.com/brotzky_"
-              className="text-sm text-neutral-600 dark:text-neutral-400"
-              target="_blank"
-            >
+            <a href="https://twitter.com/brotzky_" className="text-sm text-neutral-600 dark:text-neutral-400">
               @brotzky_
             </a>
             <span className="text-neutral-600 dark:text-neutral-400">· Mar 8</span>
@@ -43,7 +35,7 @@ export function Tweet() {
               loop
               disablePictureInPicture
               controls
-              className="border-border mt-3 aspect-[476/304] w-full rounded-xl border"
+              className="border-border mt-3 aspect-3/2 w-full rounded-xl border object-cover"
             />
           </p>
           <div className="text-muted-fg mb-3 mt-4 flex items-center gap-5">
@@ -64,18 +56,17 @@ export function Tweet() {
       </article>
       <article
         className="hover:bg-card -mt-2 flex gap-2 px-4 pb-3 pt-2"
-        data-href="https://twitter.com/oviirup/status/1766161749739507850"
-      >
+        data-href="https://twitter.com/oviirup/status/1766161749739507850">
         <div className="flex flex-col">
           <header className="mb-2 inline-flex flex-col items-start">
-            <a href="https://twitter.com/oviirup" className="flex gap-2" target="_blank">
+            <a href="https://twitter.com/oviirup" className="flex gap-2">
               <img
-                src="https://pbs.twimg.com/profile_images/1770148131709009920/z9ZchwSL_normal.jpg"
+                src="https://pbs.twimg.com/profile_images/1970715862475907072/LppovwRB_normal.png"
                 className="border-border size-10 rounded-full border"
               />
               <div>
                 <div className="hocus:underline decoration-muted-fg inline-flex items-center gap-1 text-[15px] font-bold leading-5 underline-offset-2">
-                  Avirup Ghosh
+                  OV
                 </div>
                 <div className="text-muted-fg text-sm">@oviirup</div>
               </div>
@@ -90,9 +81,7 @@ export function Tweet() {
       <div className="flex-1 px-6 pb-4 pt-2">
         <a
           href="https://x.com/brotzky_/status/1766153313303818477"
-          className="border-border hover:bg-card flex h-12 flex-1 cursor-pointer items-center justify-center rounded-full border"
-          target="_blank"
-        >
+          className="border-border hover:bg-card flex h-12 cursor-pointer items-center justify-center rounded-2xl bg-neutral-900 border -mx-2">
           Read Post
         </a>
       </div>
@@ -119,7 +108,7 @@ export function Tweet() {
  * @param {React.HTMLAttributes<HTMLImageElement> & { name: string; alt: string }} param0
  * @returns
  */
-function TWEmoji({ name, className = '', ...imageProps }) {
+function TWEmoji({ name, className = "", ...imageProps }) {
   return (
     <img
       draggable="false"
@@ -137,7 +126,7 @@ function TWEmoji({ name, className = '', ...imageProps }) {
  * @see {@link https://youtu.be/1-Gjec48nJs}
  * @see {@link https://benadam.me/thoughts/react-svg-sprites/}
  */
-function Icon({ size = '1em', name, ...iconProps }) {
+function Icon({ size = "1em", name, ...iconProps }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -147,8 +136,7 @@ function Icon({ size = '1em', name, ...iconProps }) {
       {...iconProps}
       role="img"
       data-icon={name}
-      aria-hidden
-    >
+      aria-hidden>
       <use href={`#${name}`} />
     </svg>
   );
