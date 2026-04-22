@@ -1,0 +1,10 @@
+post-checkout:
+  jobs:
+    - name: update submodules
+      run: git submodule update --init --recursive
+pre-commit:
+  jobs:
+    - name: check staged files
+      run: bun lint --write {staged_files}
+      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json,jsonc}"
+      stage_fixed: true

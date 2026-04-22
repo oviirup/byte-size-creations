@@ -2,7 +2,10 @@
   "name": "byte-size-creations",
   "private": true,
   "scripts": {
-    "clean": "bun run --parallel --filter '*' 'clean'"
+    "clean": "bun run --parallel --filter '*' 'clean'",
+    "format": "biome format --write",
+    "lint": "biome check",
+    "prepare": "lefthook install"
   },
   "devDependencies": {
     "@types/bun": "^1.3.13",
