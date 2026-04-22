@@ -1,8 +1,14 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
 # repository
 node_modules
+
+# Platform specific files
 .vercel
 .turbo
-.DS_Store
+.cache
+.cloudflare
+
 
 # build files
 build
@@ -10,14 +16,20 @@ coverage
 dist
 out
 
+# framework generated files
+.astro
+.next
+.nuxt
+.angular
+.vite
+
+# debug
+*-debug.log*
+*-error.log*
+
 # local env files
 .env*
 !.env.example
 
-# miscellaneous
-.backup
-.idea
-*.bkp.*
-*.idea.*
-*.log*
+# typescript
 *.tsbuildinfo
