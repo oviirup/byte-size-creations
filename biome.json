@@ -1,37 +1,45 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "root": true,
   "vcs": {
     "enabled": true,
     "clientKind": "git",
-    "defaultBranch": "main",
     "useIgnoreFile": true
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**/*", "!*.min.*"]
+    "includes": ["**/*", "!*.min.*", "!public/**/*"]
   },
   "formatter": {
-    "enabled": true,
-    "lineWidth": 120,
     "useEditorconfig": true,
-    "bracketSameLine": true
+    "bracketSameLine": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100
   },
   "linter": {
-    "enabled": true,
     "rules": {
-      "recommended": true,
       "a11y": {
         "recommended": false
       },
+      "correctness": {
+        "noUnusedVariables": "off",
+        "noUnusedImports": "off"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "info",
+          "options": { "functions": ["cva", "tv", "cn", "clsx"] }
+        }
+      },
       "style": {
         "noNonNullAssertion": "off",
+        "useConst": "off",
         "useImportType": "off"
       },
       "suspicious": {
         "noExplicitAny": "off",
-        "noUnknownAtRules": "off",
-        "noArrayIndexKey": "off"
+        "noUnknownAtRules": "off"
       }
     }
   },
@@ -41,10 +49,17 @@
       "cssModules": true
     }
   },
+  "html": {
+    "experimentalFullSupportEnabled": true,
+    "formatter": {
+      "enabled": true
+    }
+  },
   "assist": {
     "actions": {
       "source": {
         "organizeImports": "on",
+        "useSortedPackageJson": "on",
         "noDuplicateClasses": "on"
       }
     }

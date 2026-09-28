@@ -1,0 +1,22 @@
+{
+  "lsp": {
+    "tailwindcss-language-server": {
+      "settings": { "classFunctions": ["tv", "cva", "cn", "clsx"] }
+    }
+  },
+  "languages": {
+    "CSS": {
+      "language_servers": ["tailwindcss-intellisense-css", "!vscode-css-language-server"]
+    }
+  },
+  "format_on_save": "on",
+  "hard_tabs": false,
+  "formatter": { "language_server": { "name": "biome" } },
+  "code_actions_on_format": {
+    "source.fixAll.biome": true,
+    "source.organizeImports.biome": true
+  },
+  "ensure_final_newline_on_save": true,
+  "remove_trailing_whitespace_on_save": true,
+  "read_only_files": ["**/*.lock", "**/node_modules/**"]
+}

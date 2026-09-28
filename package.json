@@ -5,14 +5,15 @@
     "projects/*"
   ],
   "scripts": {
-    "clean": "bun run --parallel --filter '*' 'clean'",
+    "clean": "bun --filter '**' 'clean'",
     "format": "biome format --write",
-    "lint": "biome check",
-    "prepare": "lefthook install"
+    "lint": "biome check"
   },
   "devDependencies": {
-    "@types/bun": "^1.3.13",
+    "@biomejs/biome": "^2.5.14",
+    "@types/bun": "^1.4.2",
+    "@types/node": "^26.6.3",
     "rimraf": "^6.1.3",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   }
 }

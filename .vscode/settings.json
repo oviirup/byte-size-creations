@@ -1,14 +1,11 @@
 {
-  // formatting config
   "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
   "editor.defaultFormatter": "biomejs.biome",
   "editor.codeActionsOnSave": {
     "source.biome": "explicit",
     "source.organizeImports.biome": "explicit",
     "source.fixAll.biome": "explicit"
   },
-  // tailwind config
   "css.validate": false,
   "tailwindCSS.classFunctions": ["tv", "cva", "cn", "clsx"]
 }
